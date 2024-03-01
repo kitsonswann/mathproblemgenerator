@@ -24,6 +24,7 @@ app.layout = dbc.Container([
                                         {'label': 'Paw Patrol', 'value': 'paw_patrol'},
                                         {'label': 'Trucks', 'value': 'trucks'},
                                         {'label': 'Disney Cars', 'value': 'cars'},
+                                        {'label': 'Disney Frozen', 'value': 'frozen'},
                                     ],
                                     value='paw_patrol',
                                     id='theme-dropdown'
