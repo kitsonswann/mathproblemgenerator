@@ -74,7 +74,7 @@ def generate_table_rows(images):
 
     table_rows = []
     for row in range(N_QUESTIONS_PER_PAGE):
-        left, right, answer = generate_addition_problem()
+        left, right, answer = generate_addition_problem(max_answer=20, max_digit=19)
         row = dbc.Row(
             [
                 dbc.Col(generate_image_arrangement(left, images=images)), 
