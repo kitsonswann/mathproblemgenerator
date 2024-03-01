@@ -25,7 +25,8 @@ app.layout = dbc.Container([
                                         {'label': 'Trucks', 'value': 'trucks'},
                                         {'label': 'Disney Cars', 'value': 'cars'},
                                     ],
-                                    value='paw_patrol'
+                                    value='paw_patrol',
+                                    id='theme-dropdown'
                                 )
                             ),
                             dbc.Col(
@@ -55,11 +56,12 @@ fluid=True
 @callback(
     Output('mathtable', 'children'),
     Input('generate-submit', 'n_clicks'),
+    Input('theme-dropdown', 'value'),
     prevent_initial_call=True
 )
-def update_output(n_clicks):
+def update_output(n_clicks, value):
     if n_clicks:
-        return generate_table_rows(IMAGES)
+        return generate_table_rows(load_images(theme=value))
 
 if __name__ == '__main__':
     app.run(debug=True)
