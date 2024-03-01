@@ -6,6 +6,8 @@ from worksheetgenerator.helpers import generate_table_rows, load_images
 
 IMAGES = load_images()
 
+
+
 app = Dash(
     external_stylesheets=[dbc.themes.LUMEN]
 )
@@ -15,15 +17,27 @@ app.layout = dbc.Container([
             dbc.Col(
                 [
                     dbc.Row(
-                        dbc.Col(
-                            dbc.Button(
-                                "Generate Problem Set", 
-                                color="secondary", 
-                                className="me-1", 
-                                id='generate-submit', 
-                                n_clicks=0
+                        [
+                            dbc.Col(
+                                dcc.Dropdown(
+                                    options=[
+                                        {'label': 'Paw Patrol', 'value': 'paw_patrol'},
+                                        {'label': 'Trucks', 'value': 'trucks'},
+                                        {'label': 'Disney Cars', 'value': 'cars'},
+                                    ],
+                                    value='paw_patrol'
+                                )
+                            ),
+                            dbc.Col(
+                                dbc.Button(
+                                    "Generate Problem Set", 
+                                    color="secondary", 
+                                    className="me-1", 
+                                    id='generate-submit', 
+                                    n_clicks=0
+                                )
                             )
-                        )
+                        ]
                     ),
                     dbc.Row(
                         dbc.Col(

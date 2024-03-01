@@ -41,8 +41,8 @@ def resize_image(img, target_sqaure=90):
 
     return img
 
-def load_images():
-    image_paths = glob.glob(ROOT + '/assets/*.png')
+def load_images(theme='paw_patrol'):
+    image_paths = glob.glob(ROOT + f'/assets/{theme}/*.png')
     images = []
     for path in image_paths:
         img = Image.open(path)
