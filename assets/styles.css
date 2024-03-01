@@ -2,7 +2,6 @@ h1 {
     font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 .responsive-table {
-    /* border: solid; */
     text-align: center;
 }
 .responsive-table tr {
@@ -11,8 +10,6 @@ h1 {
     text-align: center;
 }
 .responsive-table td {
-    /* border: solid;
-    border-width: 0.2px; */
     width: 90px;
     height: 90px;
     margin: auto;
@@ -20,4 +17,5 @@ h1 {
 .answer-td {
     border: solid;
     width: 270px;
+    height: 100%;
 }

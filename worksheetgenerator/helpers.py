@@ -61,13 +61,13 @@ def generate_image_arrangement(n, cols=3, images=load_images()):
         row = []
         for col in range(cols):
             if laid_out < n:
-                row.append(dbc.Col(html.Img(src=image), md=4))
+                row.append(dbc.Col(html.Img(src=image), md=4, sm=4))
             else:
-                row.append(dbc.Col(html.Img(src=empty), md=4))
+                row.append(dbc.Col(html.Img(src=empty), md=4, sm=4))
             laid_out += 1
         rows.append(dbc.Row(row))
     
-    return html.Div(rows)
+    return dbc.Container(rows)
 
 
 def generate_table_rows(images):
@@ -81,9 +81,14 @@ def generate_table_rows(images):
                 dbc.Col(html.H1('+')),
                 dbc.Col(generate_image_arrangement(right, images=images)),
                 dbc.Col(html.H1('=')),
-                dbc.Col(html.H1(answer), className='answer-td')
+                dbc.Col()#html.H1(answer), class_name='answer-td')
             ],
-            align='center'
+            align='center',
+            style={
+                'border-top': 'solid', 
+                'padding': '20px',
+                'border-width': '1px'
+            }
         )
         table_rows.append(row)
 

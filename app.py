@@ -7,20 +7,36 @@ from worksheetgenerator.helpers import generate_table_rows, load_images
 IMAGES = load_images()
 
 app = Dash(
-    external_stylesheets=[dbc.themes.BOOTSTRAP]
+    external_stylesheets=[dbc.themes.LUMEN]
 )
 
-app.layout = html.Div([
+app.layout = dbc.Container([
         dbc.Row(
             dbc.Col(
                 [
-                    dbc.Row(dbc.Col(html.Div(html.Button('Generate Problem Set', id='generate-submit', n_clicks=0)))),
-                    dbc.Row(dbc.Col(html.Div(html.H1(children='Paw Patrol Kumon', style={'textAlign':'center'})))),
+                    dbc.Row(
+                        dbc.Col(
+                            dbc.Button(
+                                "Generate Problem Set", 
+                                color="secondary", 
+                                className="me-1", 
+                                id='generate-submit', 
+                                n_clicks=0
+                            )
+                        )
+                    ),
+                    dbc.Row(
+                        dbc.Col(
+                            html.H1(children='Paw Patrol Kumon', style={'textAlign':'center'})
+                        )
+                    ),
                     dbc.Row(dbc.Col(html.Div(id='mathtable', children=[], className='responsive-table'))),
                 ]
             )
         )
-])
+], 
+fluid=True
+)
 
 @callback(
     Output('mathtable', 'children'),
